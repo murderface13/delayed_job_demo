@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        Delayed::Job.enqueue(MailingJob.new(@product.name), -3, 5.minutes.from_now)
+        Resque.enqueue(NotifyAdmin, @product.name)
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else

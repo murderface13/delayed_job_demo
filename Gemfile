@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'resque'
+gem 'resque-scheduler'
+gem 'resque_mailer'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
